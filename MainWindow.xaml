@@ -3,10 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AutomatedArduinoApp"
+        xmlns:local="clr-namespace:AutomatedArduinoApp" 
+        xmlns:views="clr-namespace:AutomatedArduinoApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow"
+         Height="900" Width="1600" WindowState="Maximized" MinHeight="720" MinWidth="1300">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <views:BasicSenderView Grid.Row="1" Grid.ColumnSpan="1"/>
+        <views:TerminalView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2" />
     </Grid>
 </Window>
