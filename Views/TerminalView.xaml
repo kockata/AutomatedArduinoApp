@@ -15,21 +15,21 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="OutputTextBox"
-                 Grid.Row="0"
-                 HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch"
-                 IsReadOnly="True"
-                 VerticalScrollBarVisibility="Auto"
-                 TextWrapping="Wrap" 
-                 AcceptsReturn="True" 
-                 Background="Black"
-                 Foreground="White"
-                 FontFamily="Courier New"
-                 FontSize="14" />
+        <ListBox 
+        ItemsSource="{Binding TerminalOutput, Mode=TwoWay}"  
+        IsSynchronizedWithCurrentItem="True"
+        Grid.Row="0"        
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Background="Black"
+        Foreground="White"
+        FontFamily="Courier New"
+        FontSize="14"/>
+ 
 
         <!-- TextBox for user input -->
         <TextBox x:Name="InputTextBox"
+                 Text="{Binding InputText, Mode=TwoWay}"
                  Grid.Row="1"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Top"
@@ -38,7 +38,6 @@
                  Foreground="Black"
                  FontFamily="Courier New"
                  FontSize="14"
-                 KeyDown="InputTextBox_KeyDown"
                  />
 
         <!-- Button to submit input -->
@@ -47,6 +46,6 @@
                 VerticalAlignment="Bottom"
                 Margin="0,10,10,10"
                 Width="75"
-                Click="SubmitButton_Click"/>
+                Command="{Binding ButtonSendClick}"/>
     </Grid>
 </UserControl>

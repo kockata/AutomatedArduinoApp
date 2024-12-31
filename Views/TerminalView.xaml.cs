@@ -23,25 +23,9 @@ namespace AutomatedArduinoApp.Views
     {
         public TerminalView()
         {
-            InitializeComponent();
             this.DataContext = new TerminalViewModel();
+            InitializeComponent();
         }
 
-        // Handle the KeyDown event for the InputTextBox to trigger the submit command when Enter is pressed
-        private void InputTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == System.Windows.Input.Key.Enter)
-            {
-                var viewModel = (TerminalViewModel)this.DataContext;
-                viewModel.SubmitCommand.Execute(null);  // Trigger the command on Enter
-            }
-        }
-
-        // Handle the Submit Button click
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModel = (TerminalViewModel)this.DataContext;
-            viewModel.SubmitCommand.Execute(null);  // Trigger the command on button click
-        }
     }
 }
